@@ -1,7 +1,7 @@
 # Smart India Hackathon Workshop
-# Date:
-## Register Number:
-## Name:
+# Date: 7/04/2025
+## Register Number: 212224230268
+## Name: sibhiraaj R
 ## Problem Title
 SIH 1653: Web based Selector-Applicant Simulation Software
 ## Problem Description
@@ -11,16 +11,74 @@ Background: Recruitment and Assessment Centre (RAC) under DRDO, Ministry of Defe
 Ministry of Defence
 
 ## Idea
-
-
+To develop a web-based simulation platform that provides a realistic interview environment for both selectors and applicants. This system should:
+Enable structured interview flows starting from ice-breaking to in-depth domain questions.
+Support intelligent matching of questions based on applicant profiles.
+Allow real-time evaluaion of both questions (for relevance) and responses (for correctness and depth).
+Use NLP and AI models to quantify response relevance.
+Generate automated interview reports and overall candidate fitment score.
 ## Proposed Solution / Architecture Diagram
-
+                   ┌─────────────────────────────┐
+                   │  Applicant Registration UI  │
+                   └────────────┬────────────────┘
+                                │
+                   ┌────────────▼────────────┐
+                   │ Profile Matching Engine │◄───┐
+                   └────────────┬────────────┘    │
+                                │                 │
+                                ▼                 │
+     ┌────────────┐   ┌──────────────────────┐    │
+     │ Interview  │──►│  Question Generator   │◄───┘
+     │ Simulator  │   └──────────────────────┘
+     └────┬───────┘            │
+          │                   ▼
+          ▼         ┌──────────────────────┐
+    ┌──────────┐    │ Candidate Response   │
+    │ Expert UI│    │ Evaluation (AI/NLP)  │
+    └────┬─────┘    └──────────┬───────────┘
+         │                    ▼
+         ▼           ┌──────────────────────┐
+         └──────────►│ Scoring & Analytics  │
+                     └──────────┬───────────┘
+                                ▼
+                      ┌──────────────────────┐
+                      │ Result & Reporting   │
+                      └──────────────────────┘
 
 ## Use Cases
-
-
+Admin/HR Panel
+Upload or manage job profiles
+Set evaluation criteria
+Monitor interview sessions
+Expert/Interviewer Panel
+View applicant profile and resume
+Ask AI-suggested or custom questions
+Evaluate candidate responses (manual + auto)
+Candidate Panel
+Login and attend simulated interview
+Answer questions via text or video
+Receive feedback post-interview
+AI Components
+Question Relevance Scorer: Rates how appropriate a question is to the candidate's profile
+Response Grader: Uses NLP to evaluate how well the candidate answered
+Final Score Aggregator: Combines all scores to suggest suitability
 ## Technology Stack
-
-
+Component	Technology Used
+Frontend (Web UI)	React.js / Angular
+Backend API	Node.js / Python Flask / Django
+Database	PostgreSQL / MongoDB
+Authentication	JWT / OAuth 2.0
+AI/NLP Models	OpenAI GPT / BERT / spaCy / Transformers
+Video/Voice Integration	WebRTC / Twilio
+Scoring & Analytics	Pandas + Plotly / D3.js
+Deployment	Docker + Kubernetes + AWS/GCP/Azure
 ## Dependencies
-
+AI/ML Libraries:
+transformers, spaCy, nltk, scikit-learn for NLP and evaluation.
+Frontend Libraries:
+Material UI, TailwindCSS, Bootstrap.
+Middleware/APIs:
+Resume Parsing APIs, Text-to-Speech APIs (optional).
+Third-party Integrations:
+Twilio/WebRTC for video interviews
+Resume parsers (like Affinda, Sovren)
